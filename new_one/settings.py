@@ -33,7 +33,10 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 if not IS_HEROKU:
     DEBUG = True
 
-ALLOWED_HOSTS = []
+if IS_HEROKU:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = []
 
 
 # Application definition
